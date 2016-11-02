@@ -5,11 +5,14 @@
     .module('books')
     .controller('BooksListController', BooksListController);
 
-  BooksListController.$inject = ['BooksService'];
+  BooksListController.$inject = ['BooksService', '$scope'];
 
-  function BooksListController(BooksService) {
+  function BooksListController(BooksService, $scope) {
     var vm = this;
 
     vm.books = BooksService.query();
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
   }
 }());

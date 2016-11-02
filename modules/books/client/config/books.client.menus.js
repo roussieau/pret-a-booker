@@ -9,7 +9,7 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'Articles',
+      title: 'Livres',
       state: 'books',
       type: 'dropdown',
       roles: ['*']
@@ -17,7 +17,7 @@
 
     // Add the dropdown list item
     menuService.addSubMenuItem('topbar', 'books', {
-      title: 'hey',
+      title: 'Les livres',
       state: 'books.list',
       roles: ['*']
     });

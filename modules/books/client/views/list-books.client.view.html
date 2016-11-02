@@ -1,18 +1,24 @@
 <section>
-  <div class="page-header">
-    <h1>Articles</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="book in vm.books" ui-sref="books.view({ bookId: book._id })" class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="book.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="book.user" ng-bind="book.user.displayName"></span>
-        <span ng-if="!book.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="book.titre"></h4>
-      <p class="list-group-item-text" ng-bind="book.auteur"></p>
-    </a>
-  </div>
+    <div class="page-header">
+        <h1>Les livres</h1>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th ng-click="orderByMe('titre')">Titre</th>
+            <th ng-click="orderByMe('auteur')">Auteur</th>
+            <th ng-click="orderByMe('maison')">Maison d'édition</th>
+            <th ng-click="orderByMe('page')">Nombre de pages</th>
+            <th ng-click="orderByMe('annee')">Année d'édition</th>
+            <th ng-click="orderByMe('user.displayName')">Propriétaire</th>
+        </tr>
+        
+        <tr ng-repeat="x in vm.books | orderBy:myOrderBy">
+            <td><a ui-sref="books.view({ bookId: x._id })">{{x.titre}}</a></td>
+            <td>{{x.auteur}}</td>
+            <td>{{x.maison}}</td>
+            <td>{{x.page}}</td>
+            <td>{{x.annee}}</td>
+            <td>{{x.user.displayName}}</td>
+        </tr> 
+    </table>
 </section>
