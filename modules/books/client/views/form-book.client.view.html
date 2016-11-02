@@ -1,0 +1,56 @@
+<section>
+  <div class="page-header">
+    <h1>Ajouter un livre </h1>
+  </div>
+   <div class="col-md-12">
+    <form name="vm.form.bookForm" class="form-horizontal" ng-submit="vm.save(vm.form.bookForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="titre">Titre</label>
+          <input name="titre" type="text" ng-model="vm.book.titre" id="titre" class="form-control" placeholder="Titre" required>
+          <div ng-messages="vm.form.bookForm.titre.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut un titre</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="auteur">Auteur</label>
+        <input name="auteur" type="text" ng-model="vm.book.auteur" id="auteur" class="form-control" placeholder="Auteur" required>
+          <div ng-messages="vm.form.bookForm.auteur.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut un
+              auteur</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="maison">Maison d'édition</label>
+          <input name="maison" type="text" ng-model="vm.book.maison" id="maison"
+          class="form-control" placeholder="Maison d'édition" required>
+          <div ng-messages="vm.form.bookForm.maison.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut une
+              maison d'éditon</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="page">Nombre de pages</label>
+          <input name="page" type="number" min="0" ng-model="vm.book.page" id="page"
+          class="form-control" placeholder="Nombre de pages" required>
+          <div ng-messages="vm.form.bookForm.page.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut une
+              maison d'éditon</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="annee">Année d'édition</label>
+          <input name="annee" type="number" min="0" ng-model="vm.book.annee" id="annee"
+          class="form-control" placeholder="Année d'édition" required>
+          <div ng-messages="vm.form.bookForm.annee.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut une
+              année d'éditon</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Créer</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

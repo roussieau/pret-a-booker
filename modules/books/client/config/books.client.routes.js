@@ -17,31 +17,49 @@
       .state('books.list', {
         url: '',
         templateUrl: '/modules/books/client/views/list-books.client.view.html',
-        controller: 'ArticlesListController',
+        controller: 'BooksListController',
         controllerAs: 'vm',
         data: {
-          pageTitle: 'Articles List'
+          pageTitle: 'Books List'
+        }
+      })
+      .state('books.create', {
+        url: '/create',
+        templateUrl: '/modules/books/client/views/form-book.client.view.html',
+        controller: 'booksController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['admin', 'user']
+        },
+        resolve: {
+          bookResolve: newBook
         }
       })
       .state('books.view', {
         url: '/:bookId',
         templateUrl: '/modules/books/client/views/view-book.client.view.html',
-        controller: 'ArticlesController',
+        controller: 'booksController',
         controllerAs: 'vm',
         resolve: {
-          bookResolve: getArticle
+          bookResolve: getBook
         },
         data: {
-          pageTitle: 'Article {{ bookResolve.title }}'
+          pageTitle: 'Book {{ bookResolve.title }}'
         }
       });
   }
 
-  getArticle.$inject = ['$stateParams', 'ArticlesService'];
+  getBook.$inject = ['$stateParams', 'BooksService'];
 
-  function getArticle($stateParams, ArticlesService) {
-    return ArticlesService.get({
+  function getBook($stateParams, BooksService) {
+    return BooksService.get({
       bookId: $stateParams.bookId
     }).$promise;
   }
+  newBook.$inject = ['BooksService'];
+
+  function newBook(BooksService) {
+    return new BooksService();
+  }
+
 }());
