@@ -9,7 +9,7 @@
 
   function BooksService($resource, $log) {
     var Book = $resource('/api/books/:bookId', {
-      bookId: '@_id'
+      bookId: '@book'
     });
 
     angular.extend(Book.prototype, {
@@ -22,6 +22,7 @@
     return Book;
 
     function create(book) {
+        book.book = '581a221f100e931eb5cc3fe1';
       return book.$save(onSuccess, onError);
 
       // Handle successful response

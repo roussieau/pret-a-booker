@@ -4,7 +4,8 @@
  * Module dependencies
  */
 var booksPolicy = require('../policies/books.server.policy'),
-  books = require('../controllers/books.server.controller');
+  books = require('../controllers/books.server.controller'),
+  critique = require('../controllers/critiques.server.controller');
 
 module.exports = function (app) {
   // Articles collection routes
@@ -15,6 +16,7 @@ module.exports = function (app) {
   // Single book routes
   app.route('/api/books/:bookId').all(booksPolicy.isAllowed)
     .get(books.read)
+    .post(critique.create)
     .delete(books.delete);
 
   // Finish by binding the book middleware

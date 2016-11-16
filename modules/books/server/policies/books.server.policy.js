@@ -28,7 +28,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get', 'post']
     }, {
       resources: '/api/books/:bookId',
-      permissions: ['get']
+      permissions: ['get', 'post']
     }]
   }, {
     roles: ['guest'],
@@ -37,7 +37,7 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/books/:bookId',
-      permissions: ['get']
+      permissions: ['get', 'post']
     }]
   }]);
 };

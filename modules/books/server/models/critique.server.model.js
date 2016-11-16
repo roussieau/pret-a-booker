@@ -31,6 +31,10 @@ var CritiqueSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  book: {
+    type: Schema.ObjectId,
+    ref: 'Book'
   }
 });
 

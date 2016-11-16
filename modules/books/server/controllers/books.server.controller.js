@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   Book = mongoose.model('Book'),
+  Critique = mongoose.model('Critique'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -32,7 +33,11 @@ exports.create = function (req, res) {
 exports.read = function (req, res) {
   // convert mongoose document to JSON
   var book = req.book ? req.book.toJSON() : {};
-  res.json(book);
+  Critique.find({'book' : book._id}, function(err, crit){
+      console.log(crit);
+      res.json(book);
+  });
+
 };
 
 /**

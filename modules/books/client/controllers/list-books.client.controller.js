@@ -12,7 +12,7 @@
 
     vm.books = BooksService.query();
     $scope.orderByMe = function(x) {
-        $scope.myOrderBy = x;
-    }
+      $scope.myOrderBy = x;
+    };
   }
 }());
