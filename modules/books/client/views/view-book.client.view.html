@@ -20,7 +20,7 @@
         </div>
         <div class="form-group" show-errors>
           <label class="control-label" for="avis">Avis</label>
-        <input name="avis" type="text" ng-model="vm.book.avis" id="avis" class="form-control" placeholder="Avis" required>
+          <textarea name="avis" rows="10" type="text" ng-model="vm.book.avis" id="avis" class="form-control" placeholder="Avis" required></textarea>
           <div ng-messages="vm.form.bookForm.avis.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Il faut un
               auteur</p>

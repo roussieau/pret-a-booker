@@ -52,7 +52,7 @@ a:hover .header-profile-image {
 }
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-    color: black;
+    color: white;
 }
 /* link */
 .navbar .navbar-nav > li > a {
@@ -109,4 +109,15 @@ a:hover .header-profile-image {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #333;
     }
+}
+
+#book{
+    font-size: 25em;
+    text-align: center;
+    color : #55b4dd;
+    margin-top: 0.5em;
+}
+
+.jumbotron {
+    margin-top : 2em;
 }
