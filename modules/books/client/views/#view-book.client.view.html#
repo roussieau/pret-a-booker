@@ -1,0 +1,48 @@
+section>
+    <div class="jumbotron">
+        <h1>{{vm.book.titre}}</h1>
+      <ul>
+          <li> Ecrit par {{vm.book.auteur}}</li>
+          <li> Publié par {{vm.book.maison}}</li>
+          <li> Il contient {{vm.book.page}} pages</li>
+          <li> Il a été publié en {{vm.book.annee}}</li>
+      </ul>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.critiqueForm" class="form-horizontal" ng-submit="vm.save(vm.form.critiqueForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="titre">Titre</label>
+          <input name="titre" type="text" ng-model="vm.book.title" id="titre" class="form-control" placeholder="Titre" required>
+          <div ng-messages="vm.form.critiqueForm.titre.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut un titre</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="avis">Avis</label>
+          <textarea name="avis" rows="10" type="text" ng-model="vm.book.avis" id="avis" class="form-control" placeholder="Avis" required></textarea>
+          <div ng-messages="vm.form.bookForm.avis.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut un
+              auteur</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="note">Nombre de pages</label>
+          <input name="note" type="number" min="0" max="5" ng-model="vm.book.note" id="note"
+          class="form-control" placeholder="Nombre de pages" required>
+          <div ng-messages="vm.form.critiqueForm.page.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Il faut une
+              maison d'éditon</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Créer</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <div ng-repeat="x in vm.book.critique">
+      {{x.title}}
+      {{x.avis}}
+      </div>
+</section>

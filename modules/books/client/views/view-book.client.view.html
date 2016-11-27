@@ -1,4 +1,4 @@
-<section>
+section>
     <div class="jumbotron">
         <h1>{{vm.book.titre}}</h1>
       <ul>
@@ -13,7 +13,7 @@
       <fieldset>
         <div class="form-group" show-errors>
           <label class="control-label" for="titre">Titre</label>
-          <input name="titre" type="text" ng-model="vm.critique.titre" id="titre" class="form-control" placeholder="Titre" required>
+          <input name="titre" type="text" ng-model="vm.book.title" id="titre" class="form-control" placeholder="Titre" required>
           <div ng-messages="vm.form.critiqueForm.titre.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Il faut un titre</p>
           </div>
@@ -40,4 +40,10 @@
         </div>
       </fieldset>
     </form>
+
+    <div ng-repeat="x in vm.book.critique">
+      {{x.title}}
+      {{x.avis}}
+      
+      </div>
 </section>

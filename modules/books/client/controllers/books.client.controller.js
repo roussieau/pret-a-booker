@@ -11,6 +11,8 @@
     var vm = this;
 
     vm.book = book;
+    vm.book.book = book._id;
+    vm.book._id = null;
     vm.authentication = Authentication;
     vm.form = {};
     vm.save = save;

@@ -34,7 +34,7 @@ exports.read = function (req, res) {
   // convert mongoose document to JSON
   var book = req.book ? req.book.toJSON() : {};
   Critique.find({'book' : book._id}, function(err, crit){
-      console.log(crit);
+      book.critique = crit;
       res.json(book);
   });
 

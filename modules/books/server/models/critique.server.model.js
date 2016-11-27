@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Critique Schema
  */
 var CritiqueSchema = new Schema({
-  titre: {
+  title: {
     type: String,
     default: '',
     trim: true
