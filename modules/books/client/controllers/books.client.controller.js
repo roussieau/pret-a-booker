@@ -15,9 +15,9 @@
     vm.book._id = null;
     vm.authentication = Authentication;
     vm.form = {};
-    vm.save = save;
+      vm.save = save;
 
-    // Save Book
+      // Save Book
     function save(isValid) {
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.bookForm');

@@ -33,8 +33,16 @@ exports.create = function (req, res) {
 exports.read = function (req, res) {
   // convert mongoose document to JSON
   var book = req.book ? req.book.toJSON() : {};
-  Critique.find({'book' : book._id}, function(err, crit){
-      book.critique = crit;
+    Critique.find({'book' : book._id}).populate('user').exec( function(err, crit){
+	var num = 0;
+	var div = 0;
+	crit.forEach(function(el){
+	    num += el.note;
+	    div ++;
+	});
+	book.avg = num/div;
+	book.critique = crit;
+	console.log(book);
       res.json(book);
   });
 
